@@ -1,6 +1,23 @@
+// eslint-disable-next-line no-undef
 module.exports = function(api) {
-  api.cache(true);
+  api.cache(true)
   return {
-    presets: ['babel-preset-expo']
-  };
-};
+    presets: ['babel-preset-expo'],
+    plugins: [
+      [
+        'module-resolver',
+        {
+          alias: {
+            src: './src',
+          },
+          extensions: [
+            '.js',
+            '.jsx',
+            '.ts',
+            '.tsx',
+          ]
+        },
+      ],
+    ]
+  }
+}
